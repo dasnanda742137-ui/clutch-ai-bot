@@ -6,35 +6,126 @@
   <title>CLUTCH AI - Critical Ops Discord Bot</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background-color: #0b0d14; color: #e2e8f0; font-family: 'Rajdhani', sans-serif; line-height: 1.6; text-align: center; }
-    .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 3rem 1rem; }
-    .badge { background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); color: #34d399; padding: 0.35rem 1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.2rem; }
-    h1 { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; font-weight: 900; }
-    h1 span { color: #10b981; text-shadow: 0 0 25px rgba(16, 185, 129, 0.4); }
-    p { color: #94a3b8; max-width: 600px; font-size: 1.15rem; margin: 1rem auto; }
-    .hero-buttons { margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 0.8rem 1.6rem; font-size: 1.05rem; font-weight: 700; text-decoration: none; border-radius: 6px; }
-    .btn-primary { background: #10b981; color: #0b0d14; box-shadow: 0 0 20px rgba(16, 185, 129, 0.35); }
-    .btn-outline { border: 1px solid rgba(16, 185, 129, 0.5); color: #e2e8f0; }
-    .status-box { margin-top: 2.5rem; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); padding: 0.5rem 1.2rem; border-radius: 30px; display: inline-flex; align-items: center; gap: 0.6rem; }
-    .status-dot { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; }
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    body { 
+      background-color: #0b0d14; 
+      color: #e2e8f0; 
+      font-family: 'Rajdhani', sans-serif; 
+      line-height: 1.6; 
+      text-align: center; 
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+    .badge { 
+      background: rgba(16, 185, 129, 0.12); 
+      border: 1px solid rgba(16, 185, 129, 0.3); 
+      color: #34d399; 
+      padding: 0.35rem 1rem; 
+      border-radius: 999px; 
+      font-size: 0.9rem; 
+      font-weight: 700; 
+      margin-bottom: 1.2rem; 
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    h1 { 
+      font-family: 'Orbitron', sans-serif; 
+      font-size: clamp(2.2rem, 5vw, 3.5rem); 
+      font-weight: 900; 
+      letter-spacing: 1.5px;
+    }
+    h1 span { 
+      color: #10b981; 
+      text-shadow: 0 0 25px rgba(16, 185, 129, 0.4); 
+    }
+    p { 
+      color: #94a3b8; 
+      max-width: 620px; 
+      font-size: 1.15rem; 
+      margin: 1.2rem auto 2rem; 
+    }
+    .hero-buttons { 
+      display: flex; 
+      gap: 1.2rem; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+    }
+    .btn { 
+      display: inline-block; 
+      padding: 0.85rem 1.8rem; 
+      font-size: 1.05rem; 
+      font-weight: 700; 
+      text-decoration: none; 
+      border-radius: 8px; 
+      transition: all 0.25s ease;
+    }
+    .btn-primary { 
+      background: #10b981; 
+      color: #0b0d14; 
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.35); 
+    }
+    .btn-primary:hover { 
+      background: #34d399; 
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.6); 
+      transform: translateY(-2px);
+    }
+    .btn-outline { 
+      border: 1px solid rgba(16, 185, 129, 0.5); 
+      color: #e2e8f0; 
+      background: rgba(16, 185, 129, 0.05);
+    }
+    .btn-outline:hover { 
+      background: rgba(16, 185, 129, 0.15); 
+      transform: translateY(-2px);
+    }
+    .status-box { 
+      margin-top: 3rem; 
+      background: rgba(15, 23, 42, 0.7); 
+      border: 1px solid rgba(255, 255, 255, 0.08); 
+      padding: 0.5rem 1.3rem; 
+      border-radius: 30px; 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 0.6rem; 
+      font-size: 0.95rem;
+    }
+    .status-dot { 
+      width: 8px; 
+      height: 8px; 
+      background-color: #10b981; 
+      border-radius: 50%; 
+      box-shadow: 0 0 10px #10b981; 
+    }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="badge">🔥 Next-Gen Discord Bot</div>
-    <h1>DOMINATE WITH <span>CLUTCH AI</span></h1>
-    <p>Ultimate Critical Ops statistics, real-time player tracking, clan records, and match utility directly on your Discord server.</p>
-    <div class="hero-buttons">
-      <a href="https://discord.gg/jKe6qAmzs" target="_blank" class="btn btn-primary">➕ Add to Discord</a>
-      <a href="https://discord.gg/jKe6qAmzs" target="_blank" class="btn btn-outline">💬 Join Community</a>
-    </div>
-    <div class="status-box">
-      <span class="status-dot"></span>
-      Critical Ops status. Powered by <strong>@rikk_07</strong>
-    </div>
-  </header>
+
+  <div class="badge">🔥 Next-Gen Discord Bot</div>
+  <h1>DOMINATE WITH <span>CLUTCH AI</span></h1>
+  <p>Ultimate Critical Ops statistics, real-time player tracking, clan records, and match utility directly on your Discord server.</p>
+
+  <div class="hero-buttons">
+    <!-- ১. বট যোগ করার অফিশিয়াল ইনভাইট লিঙ্ক -->
+    <a href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot%20applications.commands" target="_blank" class="btn btn-primary">➕ Add to Discord</a>
+
+    <!-- ২. হেল্প / সাপোর্ট সার্ভার লিঙ্ক -->
+    <a href="https://discord.gg/jKe6qAmzs" target="_blank" class="btn btn-outline">💬 Support Server</a>
+  </div>
+
+  <div class="status-box">
+    <span class="status-dot"></span>
+    Critical Ops status. Powered by <strong>@rikk_07</strong>
+  </div>
+
 </body>
 </html>
+
 
