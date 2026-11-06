@@ -1,119 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLUTCH AI - Critical Ops Discord Bot</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <title>CLUTCH AI - Official Discord Bot</title>
   <style>
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    body { 
-      background-color: #0b0d14; 
-      color: #e2e8f0; 
-      font-family: 'Rajdhani', sans-serif; 
-      line-height: 1.6; 
-      text-align: center; 
-      min-height: 100vh;
+    body {
+      background-color: #0b0e14;
+      color: #ffffff;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding: 1.5rem;
+      min-height: 100vh;
+      padding: 20px;
     }
-    .badge { 
-      background: rgba(16, 185, 129, 0.12); 
-      border: 1px solid rgba(16, 185, 129, 0.3); 
-      color: #34d399; 
-      padding: 0.35rem 1rem; 
-      border-radius: 999px; 
-      font-size: 0.9rem; 
-      font-weight: 700; 
-      margin-bottom: 1.2rem; 
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      margin-top: 50px;
     }
-    h1 { 
-      font-family: 'Orbitron', sans-serif; 
-      font-size: clamp(2.2rem, 5vw, 3.5rem); 
-      font-weight: 900; 
-      letter-spacing: 1.5px;
+    .badge {
+      background: rgba(0, 255, 170, 0.1);
+      color: #00ffaa;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      border: 1px solid #00ffaa;
+      display: inline-block;
+      margin-bottom: 20px;
     }
-    h1 span { 
-      color: #10b981; 
-      text-shadow: 0 0 25px rgba(16, 185, 129, 0.4); 
+    h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(0, 255, 170, 0.3);
     }
-    p { 
-      color: #94a3b8; 
-      max-width: 620px; 
-      font-size: 1.15rem; 
-      margin: 1.2rem auto 2rem; 
+    p.desc {
+      font-size: 18px;
+      color: #a0aec0;
+      margin-bottom: 30px;
+      line-height: 1.6;
     }
-    .hero-buttons { 
-      display: flex; 
-      gap: 1.2rem; 
-      justify-content: center; 
-      flex-wrap: wrap; 
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
     }
-    .btn { 
-      display: inline-block; 
-      padding: 0.85rem 1.8rem; 
-      font-size: 1.05rem; 
-      font-weight: 700; 
-      text-decoration: none; 
-      border-radius: 8px; 
-      transition: all 0.25s ease;
+    .btn {
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
     }
-    .btn-primary { 
-      background: #10b981; 
-      color: #0b0d14; 
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.35); 
+    .btn-invite {
+      background-color: #5865F2;
+      color: white;
     }
-    .btn-primary:hover { 
-      background: #34d399; 
-      box-shadow: 0 0 30px rgba(16, 185, 129, 0.6); 
+    .btn-invite:hover {
+      background-color: #4752c4;
       transform: translateY(-2px);
     }
-    .btn-outline { 
-      border: 1px solid rgba(16, 185, 129, 0.5); 
-      color: #e2e8f0; 
-      background: rgba(16, 185, 129, 0.05);
+    .btn-support {
+      background-color: #1e2530;
+      color: #00ffaa;
+      border: 1px solid #00ffaa;
     }
-    .btn-outline:hover { 
-      background: rgba(16, 185, 129, 0.15); 
+    .btn-support:hover {
+      background-color: #00ffaa;
+      color: #0b0e14;
       transform: translateY(-2px);
     }
-    .status-box { 
-      margin-top: 3rem; 
-      background: rgba(15, 23, 42, 0.7); 
-      border: 1px solid rgba(255, 255, 255, 0.08); 
-      padding: 0.5rem 1.3rem; 
-      border-radius: 30px; 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 0.6rem; 
-      font-size: 0.95rem;
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      text-align: left;
     }
-    .status-dot { 
-      width: 8px; 
-      height: 8px; 
-      background-color: #10b981; 
-      border-radius: 50%; 
-      box-shadow: 0 0 10px #10b981; 
+    .card {
+      background: #141a24;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #232d3f;
+    }
+    .card h3 {
+      color: #00ffaa;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+    .card p {
+      color: #8c9ba5;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    footer {
+      margin-top: 60px;
+      color: #55657e;
+      font-size: 14px;
+      padding-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-  <div class="badge">🔥 Next-Gen Discord Bot</div>
-  <h1>DOMINATE WITH <span>CLUTCH AI</span></h1>
-  <p>Ultimate Critical Ops statistics, real-time player tracking, clan records, and match utility directly on your Discord server.</p>
+  <div class="container">
+    <div class="badge">Critical Ops Discord Bot</div>
+    <h1>CLUTCH AI</h1>
+    <p class="desc">
+      তোর ডিসকর্ড সার্ভারের জন্য সেরা গেমিং স্ট্যাটাস ট্র্যাকার বট। রিয়েল-টাইম প্লেয়ার প্রোফাইল, র‍্যাঙ্ক ও গেমের পরিসংখ্যান ট্র্যাক কর এক ক্লিকেই।
+    </p>
 
-  <div class="hero-buttons">
-    <a href="
+    <div class="buttons">
+      <!-- Bot Invite Button -->
+      <a href="https://discord.com/oauth2/authorize?client_id=1568151436288593940&permissions=347136&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-invite">Invite Bot</a>
       
+      <!-- Support Server Button -->
+      <a href="https://discord.gg/jKe6qAmzs" target="_blank" class="btn btn-support">Support Server</a>
+    </div>
 
+    <div class="features">
+      <div class="card">
+        <h3>⚡ রিয়েল-টাইম স্ট্যাটাস</h3>
+        <p>সরাসরি এপিআই থেকে প্লেয়ারের কিল, ডেথ, কে/ডি রেশিও এবং র‍্যাঙ্ক বিস্তারিত দেখায়।</p>
+      </div>
+      <div class="card">
+        <h3>🎯 স্ল্যাশ কমান্ড</h3>
+        <p>সহজ ও দ্রুত স্ল্যাশ (/) কমান্ডের সাহায্যে যেকোনো তথ্য চোখের পলকে খুঁজে পাওয়া যায়।</p>
+      </div>
+      <div class="card">
+        <h3>🛡️ ২৪/৭ অ্যাক্টিভ</h3>
+        <p>সার্বক্ষণিক অনলাইন থাকে, ফলে যেকোনো সময় নির্বিঘ্নে ডেটা অ্যাক্সেস করা সম্ভব।</p>
+      </div>
+    </div>
 
+    <footer>
+      Powered by CLUTCH AI • Created by @rikk_07
+    </footer>
+  </div>
+
+</body>
+</html>
